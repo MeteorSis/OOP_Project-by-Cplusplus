@@ -2,11 +2,34 @@
 using namespace std;
 
 int menu(void);
+void makeAccount(void);
+void depositMoney(void);
+void withdrawMoney(void);
+void showAllAccInfo(void);
 
 int main(void)
 {
-	
-	return 0;
+	while (true)
+	{
+		switch (menu())
+		{
+		case 1:
+			makeAccount();
+			break;
+		case 2:
+			depositMoney();
+			break;
+		case 3:
+			withdrawMoney();
+			break;
+		case 4:
+			showAllAccInfo();
+			break;
+		case 5:
+			cout << "\n프로그램을 종료합니다." << endl;
+			return 0;
+		}
+	}
 }
 
 int menu(void)
