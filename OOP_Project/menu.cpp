@@ -17,5 +17,6 @@ int menu(void)
 			break;
 		cout << "\n값이 잘못되었습니다.\n다시 입력해주십시오\n" << endl;
 	}
+	cout << endl;
 	return choice;
 }

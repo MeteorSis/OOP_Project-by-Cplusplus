@@ -2,25 +2,29 @@
 #include "menu.h"
 #include "functions.h"
 
+Account accArr[ACC_NUM_OF_MAX];
+extern int accNum = 0;
+
 int main(void)
 {
 	while (true)
 	{
+		cout << endl;
 		switch (menu())
 		{
-		case 1:
+		case MAKE:
 			makeAccount();
 			break;
-		case 2:
+		case DEPOSIT:
 			depositMoney();
 			break;
-		case 3:
+		case WITHDRAW:
 			withdrawMoney();
 			break;
-		case 4:
+		case INQUIRE:
 			showAllAccInfo();
 			break;
-		case 5:
+		case EXIT:
 			cout << "\n프로그램을 종료합니다." << endl;
 			return 0;
 		}
