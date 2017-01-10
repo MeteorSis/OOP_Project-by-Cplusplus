@@ -8,12 +8,12 @@ using namespace std;
 
 enum { MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE, EXIT };
 
-typedef struct
+struct Account
 {
 	int accID;
 	int balance;
 	char cusName[NAME_LEN];
-} Account;
+};
 
 extern Account accArr[ACC_NUM_OF_MAX];
 extern int accNum;
