@@ -8,6 +8,7 @@ private:
 
 public:
 	Account(const int &accID, const int &balance, char * const &cusName);
+	Account(const Account &ref);
 	~Account();
 	Account* getAccPtrFromID(const int &accID);
 	void deposit(const int &money);

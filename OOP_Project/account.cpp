@@ -4,6 +4,13 @@
 Account::Account(const int &accID, const int &balance, char * const &cusName)
 	:accID(accID), balance(balance), cusName(cusName){}
 
+Account::Account(const Account &ref)
+	:accID(ref.accID), balance(ref.balance)
+{
+	cusName = new char[strlen(ref.cusName) + 1];
+	strcpy(cusName, ref.cusName);
+}
+
 Account::~Account()
 {
 	delete cusName;
