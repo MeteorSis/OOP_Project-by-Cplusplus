@@ -1,5 +1,4 @@
 #include "main.h"
-#include "menu.h"
 #include "accountHandler.h"
 
 int main(void)
@@ -8,7 +7,7 @@ int main(void)
 	while (true)
 	{
 		cout << endl;
-		switch (menu())
+		switch (accHandler.showAndInputMenu())
 		{
 		case MAKE:
 			accHandler.makeAccount();
