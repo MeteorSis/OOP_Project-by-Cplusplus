@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include "account.h"
+
 using namespace std;
 
 #define NAME_LEN 20
@@ -8,12 +10,5 @@ using namespace std;
 
 enum { MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE, EXIT };
 
-struct Account
-{
-	int accID;
-	int balance;
-	char cusName[NAME_LEN];
-};
-
-extern Account accArr[ACC_NUM_OF_MAX];
+extern Account* accPtrArr[ACC_NUM_OF_MAX];
 extern int accNum;

@@ -1,8 +1,9 @@
 #include "main.h"
 #include "menu.h"
 #include "functions.h"
+#include "account.h"
 
-Account accArr[ACC_NUM_OF_MAX];
+Account* accPtrArr[ACC_NUM_OF_MAX];
 extern int accNum = 0;
 
 int main(void)
