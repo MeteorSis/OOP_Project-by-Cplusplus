@@ -2,7 +2,7 @@
 #include "account.h"
 #include "main.h"
 
-class AccountHandler
+class AccountHandler	//this is handler class
 {
 private:
 	Account* accPtrArr[ACC_NUM_OF_MAX];
