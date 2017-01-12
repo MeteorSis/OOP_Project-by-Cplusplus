@@ -143,13 +143,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="account.cpp" />
-    <ClCompile Include="functions.cpp" />
+    <ClCompile Include="accountHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
-    <ClInclude Include="functions.h" />
+    <ClInclude Include="accountHandler.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="menu.h" />
   </ItemGroup>

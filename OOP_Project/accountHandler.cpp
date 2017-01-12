@@ -1,12 +1,14 @@
-#include "main.h"
+#include "accountHandler.h"
 
-void makeAccount(void)
+AccountHandler::AccountHandler() :accNum(0){}
+
+void AccountHandler::makeAccount(void)
 {
 	int accID;
 	char cusName[NAME_LEN];
 	char *namePtr;
 	int balance;
-	 
+
 	cout << "[계좌개설]" << endl;
 	cout << "계좌ID : ";
 	cin >> accID;
@@ -19,15 +21,7 @@ void makeAccount(void)
 	accPtrArr[accNum++] = new Account(accID, balance, namePtr);
 }
 
-Account* searchID(int id)
-{
-	for (int i = 0; i < accNum; ++i)
-		if (Account* accPtr=(accPtrArr[i]->getAccPtrFromID(id)))
-			return accPtr;
-	return nullptr;
-}
-
-void depositMoney(void)
+void AccountHandler::depositMoney(void)
 {
 	int id;
 	int money;
@@ -46,7 +40,7 @@ void depositMoney(void)
 	cout << "입금완료" << endl;
 }
 
-void withdrawMoney(void)
+void AccountHandler::withdrawMoney(void)
 {
 	int id;
 	int money;
@@ -69,7 +63,7 @@ void withdrawMoney(void)
 	cout << "출금완료" << endl;
 }
 
-void showAllAccInfo(void)
+void AccountHandler::showAllAccInfo(void)
 {
 	if (accNum == 0)
 	{
@@ -78,4 +72,12 @@ void showAllAccInfo(void)
 	}
 	for (int i = 0; i < accNum; ++i)
 		accPtrArr[i]->showAccInfo();
+}
+
+Account* AccountHandler::searchID(int id)
+{
+	for (int i = 0; i < accNum; ++i)
+		if (Account* accPtr = (accPtrArr[i]->getAccPtrFromID(id)))
+			return accPtr;
+	return nullptr;
 }

@@ -21,10 +21,10 @@
     <ClCompile Include="menu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="functions.cpp">
+    <ClCompile Include="account.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="account.cpp">
+    <ClCompile Include="accountHandler.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +35,10 @@
     <ClInclude Include="menu.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="functions.h">
+    <ClInclude Include="account.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="account.h">
+    <ClInclude Include="accountHandler.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
