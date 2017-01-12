@@ -4,6 +4,7 @@ AccountHandler::AccountHandler() :accNum(0){}
 
 int AccountHandler::showAndInputMenu() const//this is handler
 {
+//comment 2
 	int choice;
 	while (true)
 	{
