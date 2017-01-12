@@ -1,25 +1,26 @@
 #include "main.h"
 #include "menu.h"
-//#include "account.h"
+#include "accountHandler.h"
 
 int main(void)
 {
+	AccountHandler accHandler;
 	while (true)
 	{
 		cout << endl;
 		switch (menu())
 		{
 		case MAKE:
-			makeAccount();
+			accHandler.makeAccount();
 			break;
 		case DEPOSIT:
-			depositMoney();
+			accHandler.depositMoney();
 			break;
 		case WITHDRAW:
-			withdrawMoney();
+			accHandler.withdrawMoney();
 			break;
 		case INQUIRE:
-			showAllAccInfo();
+			accHandler.showAllAccInfo();
 			break;
 		case EXIT:
 			cout << "\n프로그램을 종료합니다." << endl;
