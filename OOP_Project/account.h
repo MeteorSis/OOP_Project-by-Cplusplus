@@ -9,9 +9,9 @@ private:
 public:
 	Account(const int &accID, const int &balance, char * const &cusName);
 	Account(const Account &ref);
-	~Account();
+	virtual ~Account();
 	Account* getAccPtrFromID(const int &accID);
 	void deposit(const int &money);
 	bool withdraw(const int &money);
-	void showAccInfo(void) const;
+	virtual void showAccInfo(void) const;
 };
