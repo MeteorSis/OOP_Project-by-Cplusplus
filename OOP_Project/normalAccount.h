@@ -2,7 +2,8 @@
 #include "account.h"
 class NormalAccount : public Account
 {
+private:
+	int interRate;
 public:
-	NormalAccount();
-	~NormalAccount();
+	NormalAccount(const int &accID, const int &balance, char * const &cusName, const int &interRate);
 };
