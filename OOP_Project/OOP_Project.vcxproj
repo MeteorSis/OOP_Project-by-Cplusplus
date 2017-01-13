@@ -144,12 +144,14 @@
   <ItemGroup>
     <ClCompile Include="account.cpp" />
     <ClCompile Include="accountHandler.cpp" />
+    <ClCompile Include="highCreditAccount.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="normalAccount.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
     <ClInclude Include="accountHandler.h" />
+    <ClInclude Include="highCreditAccount.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="normalAccount.h" />
   </ItemGroup>
