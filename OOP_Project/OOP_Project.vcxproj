@@ -145,11 +145,13 @@
     <ClCompile Include="account.cpp" />
     <ClCompile Include="accountHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="normalAccount.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
     <ClInclude Include="accountHandler.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="normalAccount.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
