@@ -30,7 +30,27 @@ void AccountHandler::makeAccount(void)
 	char *namePtr;
 	int balance;
 
-	cout << "[계좌개설]" << endl;
+	int kindOfAcc;
+	while (true)
+	{
+		cout << "[계좌종류선택]" << endl;
+		cout << "1. 보통예금계좌 2. 신용신뢰계좌" << endl;
+		cout << "선택 : ";
+		cin >> kindOfAcc;
+		if(kindOfAcc==NORMALACC || kindOfAcc==HIGHCREDITACC)
+			break;
+		cout << "잘못된 값을 입력하셨습니다." << endl;
+	}
+	
+	switch (kindOfAcc)
+	{
+	case NORMALACC:
+		cout << "[보통예금계좌 개설]" << endl;
+		break;
+	case HIGHCREDITACC:
+		cout << "[신용신뢰계좌 개설]" << endl;
+		break;
+	}
 	cout << "계좌ID : ";
 	cin >> accID;
 	cout << "이 름 : ";
@@ -39,7 +59,24 @@ void AccountHandler::makeAccount(void)
 	strcpy(namePtr, cusName);
 	cout << "입금액 : ";
 	cin >> balance;
-	accPtrArr[accNum++] = new Account(accID, balance, namePtr);
+
+	int interRate;
+	cout << "이자율 : ";
+	cin >> interRate;
+
+	switch (kindOfAcc)
+	{
+	case NORMALACC:
+		accPtrArr[accNum++] = new NormalAccount(accID, balance, namePtr, interRate);
+		break;
+	case HIGHCREDITACC:
+		char specialRate;
+		cout << "신용등급 (A, B, C) : ";
+		cin >> specialRate;
+		accPtrArr[accNum++] = new HighCreditAccount(accID, balance, namePtr, interRate, specialRate);
+		break;
+	}
+	
 }
 
 void AccountHandler::depositMoney(void)
