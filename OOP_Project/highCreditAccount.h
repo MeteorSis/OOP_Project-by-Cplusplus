@@ -6,4 +6,5 @@ private:
 	char specialRate;
 public:
 	HighCreditAccount(const int &accID, const int &balance, char * const &cusName, const int &interRate, const char &specialRate);
+	void showAccInfo(void) const;
 };

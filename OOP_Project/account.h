@@ -9,7 +9,7 @@ private:
 public:
 	Account(const int &accID, const int &balance, char * const &cusName);
 	Account(const Account &ref);
-	virtual ~Account() = 0;
+	~Account();
 	Account* getAccPtrFromID(const int &accID);
 	void deposit(const int &money);
 	bool withdraw(const int &money);

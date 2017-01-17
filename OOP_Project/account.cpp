@@ -41,5 +41,4 @@ void Account::showAccInfo(void) const
 	cout << "°èÁÂID : " << accID << endl;
 	cout << "ÀÌ ¸§ : " << cusName << endl;
 	cout << "ÀÜ ¾× : " << balance << endl;
-	cout << endl;
 }
