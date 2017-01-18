@@ -11,7 +11,7 @@ public:
 	Account(const Account &ref);
 	~Account();
 	Account* getAccPtrFromID(const int &accID);
-	void deposit(const int &money);
+	virtual void deposit(const int &money) = 0;
 	bool withdraw(const int &money);
 	virtual void showAccInfo(void) const = 0;
 };

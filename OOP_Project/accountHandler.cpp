@@ -71,8 +71,14 @@ void AccountHandler::makeAccount(void)
 		break;
 	case HIGHCREDITACC:
 		char specialRate;
-		cout << "신용등급 (A, B, C) : ";
-		cin >> specialRate;
+		while (true)
+		{
+			cout << "신용등급 (A, B, C) : ";
+			cin >> specialRate;
+			if ((specialRate >= 'A' && specialRate <= 'C') || (specialRate >= 'a' && specialRate <= 'c'))
+				break;
+			cout << "올바르지 않은 등급을 입력하셨습니다." << endl;
+		}
 		accPtrArr[accNum++] = new HighCreditAccount(accID, balance, namePtr, interRate, specialRate);
 		break;
 	}
@@ -129,7 +135,10 @@ void AccountHandler::showAllAccInfo(void)
 		return;
 	}
 	for (int i = 0; i < accNum; ++i)
+	{
 		accPtrArr[i]->showAccInfo();
+		cout << endl;
+	}
 }
 
 Account* AccountHandler::searchID(int id)
