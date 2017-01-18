@@ -1,4 +1,4 @@
-#include "main.h"
+#include "BankingCommonDecl.h"
 #include "accountHandler.h"
 
 int main(void)

@@ -1,5 +1,5 @@
 #pragma once
-#include "main.h"
+#include "BankingCommonDecl.h"
 #include "account.h"
 #include "normalAccount.h"
 #include "highCreditAccount.h"

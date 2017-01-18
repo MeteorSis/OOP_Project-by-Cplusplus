@@ -1,4 +1,4 @@
-#include "main.h"
+#include "BankingCommonDecl.h"
 #include "highCreditAccount.h"
 
 HighCreditAccount::HighCreditAccount(const int &accID, const int &balance, char * const &cusName, const int &interRate, const char &specialRate)

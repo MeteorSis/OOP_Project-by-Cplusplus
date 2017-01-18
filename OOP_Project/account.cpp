@@ -1,4 +1,4 @@
-#include "main.h"
+#include "BankingCommonDecl.h"
 #include "account.h"
 
 Account::Account(const int &accID, const int &balance, char * const &cusName)
