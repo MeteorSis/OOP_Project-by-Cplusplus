@@ -143,7 +143,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="account.cpp" />
-    <ClCompile Include="AccountArray.cpp" />
     <ClCompile Include="accountHandler.cpp" />
     <ClCompile Include="highCreditAccount.cpp" />
     <ClCompile Include="BankingCommonDecl.cpp" />
@@ -152,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
-    <ClInclude Include="AccountArray.h" />
+    <ClInclude Include="BoundCheckArray.h" />
     <ClInclude Include="accountHandler.h" />
     <ClInclude Include="highCreditAccount.h" />
     <ClInclude Include="BankingCommonDecl.h" />

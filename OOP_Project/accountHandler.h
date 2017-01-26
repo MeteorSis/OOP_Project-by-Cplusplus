@@ -4,12 +4,12 @@
 #include "account.h"
 #include "normalAccount.h"
 #include "highCreditAccount.h"
-#include "AccountArray.h"
+#include "BoundCheckArray.h"
 
 class AccountHandler
 {
 private:
-	AccountArray accPtrArr;
+	BoundCheckArray<ACCOUNT_PTR> accPtrArr;
 	int accNum;
 	enum{ NORMALACC=1, HIGHCREDITACC };
 
