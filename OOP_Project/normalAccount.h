@@ -1,5 +1,8 @@
 #pragma once
+
+#include "BankingCommonDecl.h"
 #include "account.h"
+
 class NormalAccount : public Account
 {
 private:

@@ -1,4 +1,6 @@
 #pragma once
+
+#include "BankingCommonDecl.h"
 #include "normalAccount.h"
 class HighCreditAccount : public NormalAccount
 {

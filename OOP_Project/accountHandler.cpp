@@ -1,6 +1,6 @@
 #include "accountHandler.h"
 
-AccountHandler::AccountHandler() :accNum(0){}
+AccountHandler::AccountHandler() :accPtrArr(ACC_NUM_OF_MAX), accNum(0){}
 
 int AccountHandler::showAndInputMenu() const
 {

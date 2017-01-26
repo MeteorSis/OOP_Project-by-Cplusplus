@@ -1,5 +1,8 @@
 #pragma once
 
+#include "BankingCommonDecl.h"
+
+class Account;
 typedef Account* ACCOUNT_PTR;
 
 class Account

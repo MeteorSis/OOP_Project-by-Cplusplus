@@ -1,13 +1,15 @@
 #pragma once
+
 #include "BankingCommonDecl.h"
 #include "account.h"
 #include "normalAccount.h"
 #include "highCreditAccount.h"
+#include "AccountArray.h"
 
 class AccountHandler
 {
 private:
-	ACCOUNT_PTR accPtrArr[ACC_NUM_OF_MAX];
+	AccountArray accPtrArr;
 	int accNum;
 	enum{ NORMALACC=1, HIGHCREDITACC };
 
