@@ -1,6 +1,7 @@
 #pragma once
 
-#include "BankingCommonDecl.h"
+#include <iostream>
+using namespace std;
 
 class String
 {
@@ -19,5 +20,5 @@ public:
 	String operator+(const String& s);
 
 	friend ostream& operator<<(ostream& os, const String& s);
-	friend istream& operator>> (istream& is, String& s);
+	friend istream& operator>>(istream& is, String& s);
 };

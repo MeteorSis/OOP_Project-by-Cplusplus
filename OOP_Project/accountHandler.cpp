@@ -26,8 +26,7 @@ int AccountHandler::showAndInputMenu() const
 void AccountHandler::makeAccount(void)
 {
 	int accID;
-	char cusName[NAME_LEN];
-	char *namePtr;
+	String cusName;
 	int balance;
 
 	int kindOfAcc;
@@ -55,8 +54,6 @@ void AccountHandler::makeAccount(void)
 	cin >> accID;
 	cout << "이 름 : ";
 	cin >> cusName;
-	namePtr = new char[strlen(cusName) + 1];
-	strcpy(namePtr, cusName);
 	cout << "입금액 : ";
 	cin >> balance;
 
@@ -67,7 +64,7 @@ void AccountHandler::makeAccount(void)
 	switch (kindOfAcc)
 	{
 	case NORMALACC:
-		accPtrArr[accNum++] = new NormalAccount(accID, balance, namePtr, interRate);
+		accPtrArr[accNum++] = new NormalAccount(accID, balance, cusName, interRate);
 		break;
 	case HIGHCREDITACC:
 		char specialRate;
@@ -79,7 +76,7 @@ void AccountHandler::makeAccount(void)
 				break;
 			cout << "올바르지 않은 등급을 입력하셨습니다." << endl;
 		}
-		accPtrArr[accNum++] = new HighCreditAccount(accID, balance, namePtr, interRate, specialRate);
+		accPtrArr[accNum++] = new HighCreditAccount(accID, balance, cusName, interRate, specialRate);
 		break;
 	}
 	

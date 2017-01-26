@@ -1,29 +1,8 @@
 #include "account.h"
 
-Account::Account(const int &accID, const int &balance, char * const &cusName)
+Account::Account(const int &accID, const int &balance, const String &cusName)
 	:accID(accID), balance(balance), cusName(cusName){}
 
-Account::Account(const Account &ref)
-	:accID(ref.accID), balance(ref.balance)
-{
-	cusName = new char[strlen(ref.cusName) + 1];
-	strcpy(cusName, ref.cusName);
-}
-
-Account::~Account()
-{
-	delete cusName;
-}
-
-Account& Account::operator=(const Account& ref)
-{
-	accID = ref.accID;
-	balance = ref.balance;
-	delete []cusName;
-	cusName = new char[strlen(ref.cusName) + 1];
-	strcpy(cusName, ref.cusName);
-	return *this;
-}
 
 ACCOUNT_PTR Account::getAccPtrFromID(const int &accID)
 {
