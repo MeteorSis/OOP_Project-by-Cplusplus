@@ -16,6 +16,15 @@ Account::~Account()
 	delete cusName;
 }
 
+Account& Account::operator=(const Account& ref)
+	:accID(ref.accID), balance(ref.balance)
+{
+	delete []cusName;
+	cusName = new char[strlen(ref.cusName) + 1)];
+	strcpy(cusName, ref.cusName);
+	return *this;
+}
+
 Account* Account::getAccPtrFromID(const int &accID)
 {
 	if (this->accID == accID)

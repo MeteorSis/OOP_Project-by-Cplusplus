@@ -10,6 +10,7 @@ public:
 	Account(const int &accID, const int &balance, char * const &cusName);
 	Account(const Account &ref);
 	~Account();
+	Account& operator=(const Account& ref);
 	Account* getAccPtrFromID(const int &accID);
 	virtual void deposit(const int &money) = 0;
 	bool withdraw(const int &money);
