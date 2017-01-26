@@ -26,7 +26,7 @@ Account& Account::operator=(const Account& ref)
 	return *this;
 }
 
-Account* Account::getAccPtrFromID(const int &accID)
+ACCOUNT_PTR Account::getAccPtrFromID(const int &accID)
 {
 	if (this->accID == accID)
 		return this;

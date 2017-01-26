@@ -7,7 +7,7 @@
 class AccountHandler
 {
 private:
-	Account* accPtrArr[ACC_NUM_OF_MAX];
+	ACCOUNT_PTR accPtrArr[ACC_NUM_OF_MAX];
 	int accNum;
 	enum{ NORMALACC=1, HIGHCREDITACC };
 
@@ -18,5 +18,5 @@ public:
 	void depositMoney(void);
 	void withdrawMoney(void);
 	void showAllAccInfo(void);
-	Account* searchID(int id);
+	ACCOUNT_PTR searchID(int id);
 };

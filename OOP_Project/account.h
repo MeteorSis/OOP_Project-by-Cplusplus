@@ -1,4 +1,7 @@
 #pragma once
+
+typedef Account* ACCOUNT_PTR;
+
 class Account
 {
 private:
@@ -11,7 +14,7 @@ public:
 	Account(const Account &ref);
 	~Account();
 	Account& operator=(const Account& ref);
-	Account* getAccPtrFromID(const int &accID);
+	ACCOUNT_PTR getAccPtrFromID(const int &accID);
 	virtual void deposit(const int &money) = 0;
 	bool withdraw(const int &money);
 	virtual void showAccInfo(void) const = 0;

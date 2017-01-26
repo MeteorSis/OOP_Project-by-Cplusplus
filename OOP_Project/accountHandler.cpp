@@ -92,7 +92,7 @@ void AccountHandler::depositMoney(void)
 	cout << "[입   금]" << endl;
 	cout << "계좌ID : ";
 	cin >> id;
-	Account* searchedAcc = searchID(id);
+	ACCOUNT_PTR searchedAcc = searchID(id);
 	if (searchedAcc == nullptr)
 	{
 		cout << "ID가 존재하지 않습니다." << endl;
@@ -111,7 +111,7 @@ void AccountHandler::withdrawMoney(void)
 	cout << "[출   금]" << endl;
 	cout << "계좌ID : ";
 	cin >> id;
-	Account* searchedAcc = searchID(id);
+	ACCOUNT_PTR searchedAcc = searchID(id);
 	if (searchedAcc == nullptr)
 	{
 		cout << "ID가 존재하지 않습니다." << endl;
@@ -141,10 +141,10 @@ void AccountHandler::showAllAccInfo(void)
 	}
 }
 
-Account* AccountHandler::searchID(int id)
+ACCOUNT_PTR AccountHandler::searchID(int id)
 {
 	for (int i = 0; i < accNum; ++i)
-		if (Account* accPtr = (accPtrArr[i]->getAccPtrFromID(id)))
+		if (ACCOUNT_PTR accPtr = (accPtrArr[i]->getAccPtrFromID(id)))
 			return accPtr;
 	return nullptr;
 }
