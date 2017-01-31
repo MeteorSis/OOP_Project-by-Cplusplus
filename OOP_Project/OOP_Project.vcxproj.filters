@@ -13,18 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\exceptions">
+      <UniqueIdentifier>{0cc16ac2-bc3f-4289-a05a-56a97e813427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\accounts">
+      <UniqueIdentifier>{432a5889-640f-448c-8675-99485e762d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\accounts">
+      <UniqueIdentifier>{207e3118-1beb-474b-801d-9168abcc7296}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="account.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="accountHandler.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="normalAccount.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="highCreditAccount.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="BankingCommonDecl.cpp">
@@ -33,18 +33,18 @@
     <ClCompile Include="String.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="account.cpp">
+      <Filter>소스 파일\accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="highCreditAccount.cpp">
+      <Filter>소스 파일\accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="normalAccount.cpp">
+      <Filter>소스 파일\accounts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="account.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="accountHandler.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="normalAccount.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="highCreditAccount.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BankingCommonDecl.h">
@@ -55,6 +55,27 @@
     </ClInclude>
     <ClInclude Include="BoundCheckArray.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="invalid_variable.h">
+      <Filter>헤더 파일\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="invalid_menu.h">
+      <Filter>헤더 파일\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="minusException.h">
+      <Filter>헤더 파일\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="insuffException.h">
+      <Filter>헤더 파일\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="account.h">
+      <Filter>헤더 파일\accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="normalAccount.h">
+      <Filter>헤더 파일\accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="highCreditAccount.h">
+      <Filter>헤더 파일\accounts</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

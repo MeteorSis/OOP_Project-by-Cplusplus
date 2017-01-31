@@ -13,20 +13,28 @@ ACCOUNT_PTR Account::getAccPtrFromID(const int &accID)
 
 void Account::deposit(const int &money)
 {
+	if (money < 0)
+		throw minusException(money, "\n양수 값을 입력하셔야합니다.");
 	balance += money;
 }
 
-bool Account::withdraw(const int &money)
+void Account::withdraw(const int &money)
 {
+	if (money < 0)
+		throw minusException(money, "\n양수 값을 입력하셔야합니다.");
 	if (this->balance < money)
-		return false;
+	{
+		string tmpStr("\n잔액이 모자랍니다. : (잔액 : ");
+		tmpStr.append(to_string(balance));
+		tmpStr.append("원)");
+		throw insuffException(tmpStr);
+	}
 	this->balance -= money;
-	return true;
 }
 
 void Account::showAccInfo(void) const
 {
-	cout << "계좌ID : " << accID << endl;
+	cout << "\n계좌ID : " << accID << endl;
 	cout << "이 름 : " << cusName << endl;
 	cout << "잔 액 : " << balance << endl;
 }

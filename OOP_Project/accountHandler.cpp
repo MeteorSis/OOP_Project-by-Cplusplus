@@ -1,6 +1,6 @@
 #include "accountHandler.h"
 
-AccountHandler::AccountHandler() :accPtrArr(ACC_NUM_OF_MAX), accNum(0){}
+AccountHandler::AccountHandler() : accPtrArr(ACC_NUM_OF_MAX), accNum(0){}
 
 int AccountHandler::showAndInputMenu() const
 {
@@ -14,13 +14,24 @@ int AccountHandler::showAndInputMenu() const
 		cout << "4. 계좌정보 전체 출력" << endl;
 		cout << "5. 프로그램 종료" << endl;
 		cout << "선택 : ";
-		cin >> choice;
-		if (choice >= 1 && choice <= 5)
-			break;
-		cout << "\n값이 잘못되었습니다.\n다시 입력해주십시오\n" << endl;
+		try
+		{
+			if (!(cin >> choice))
+				throw invalid_variable("\n정수 값을 입력하셔야합니다.");
+			
+			if (choice < 1 || choice > 5)
+				throw invalid_menu("\n존재하지 않는 메뉴를 입력하셨습니다.");
+
+			return choice;
+		}
+		catch (logic_error &ex)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
 	}
-	cout << endl;
-	return choice;
 }
 
 void AccountHandler::makeAccount(void)
@@ -32,34 +43,101 @@ void AccountHandler::makeAccount(void)
 	int kindOfAcc;
 	while (true)
 	{
-		cout << "[계좌종류선택]" << endl;
+		cout << "\n[계좌종류선택]" << endl;
 		cout << "1. 보통예금계좌 2. 신용신뢰계좌" << endl;
 		cout << "선택 : ";
-		cin >> kindOfAcc;
-		if(kindOfAcc==NORMALACC || kindOfAcc==HIGHCREDITACC)
+
+		try
+		{
+			if (!(cin >> kindOfAcc))
+				throw invalid_variable("\n정수 값을 입력하셔야합니다.");
+
+			if (kindOfAcc != NORMALACC && kindOfAcc != HIGHCREDITACC)
+				throw invalid_menu("\n존재하지 않는 메뉴를 입력하셨습니다.");
+
 			break;
-		cout << "잘못된 값을 입력하셨습니다." << endl;
+		}
+		catch (logic_error &ex)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl;
+		}
 	}
 	
 	switch (kindOfAcc)
 	{
 	case NORMALACC:
-		cout << "[보통예금계좌 개설]" << endl;
+		cout << "\n[보통예금계좌 개설]" << endl;
 		break;
 	case HIGHCREDITACC:
-		cout << "[신용신뢰계좌 개설]" << endl;
+		cout << "\n[신용신뢰계좌 개설]" << endl;
 		break;
 	}
-	cout << "계좌ID : ";
-	cin >> accID;
+
+	while (true)
+	{
+		cout << "계좌ID : ";
+		try
+		{
+			if (!(cin >> accID))
+				throw invalid_variable("\n정수 값을 입력하셔야합니다.");
+			break;
+		}
+		catch (invalid_variable &ex)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+	}
 	cout << "이 름 : ";
 	cin >> cusName;
-	cout << "입금액 : ";
-	cin >> balance;
-
+	while (true)
+	{
+		cout << "입금액 : ";
+		try
+		{
+			if (!(cin >> balance))
+				throw invalid_variable("\n정수 값을 입력하셔야합니다.");
+			if (balance < 0)
+				throw minusException(balance, "\n양수 값을 입력하셔야합니다.");
+			break;
+		}
+		catch (invalid_variable &ex)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+		catch (minusException &ex)
+		{
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+	}
+	
 	int interRate;
-	cout << "이자율 : ";
-	cin >> interRate;
+	while (true)
+	{
+		cout << "이자율 : ";
+		try
+		{
+			if (!(cin >> interRate))
+				throw invalid_variable("\n정수 값을 입력하셔야합니다.");
+			break;
+		}
+		catch (invalid_variable &ex)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+	}
 
 	switch (kindOfAcc)
 	{
@@ -86,7 +164,7 @@ void AccountHandler::depositMoney(void)
 {
 	int id;
 	int money;
-	cout << "[입   금]" << endl;
+	cout << "\n[입   금]" << endl;
 	cout << "계좌ID : ";
 	cin >> id;
 	ACCOUNT_PTR searchedAcc = searchID(id);
@@ -95,9 +173,22 @@ void AccountHandler::depositMoney(void)
 		cout << "ID가 존재하지 않습니다." << endl;
 		return;
 	}
-	cout << "입금액 : ";
-	cin >> money;
-	searchedAcc->deposit(money);
+	while (true)
+	{
+		cout << "입금액 : ";
+		cin >> money;
+		try
+		{
+			searchedAcc->deposit(money);
+			break;
+		}
+		catch (minusException &ex)
+		{
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+	}
+		
 	cout << "입금완료" << endl;
 }
 
@@ -105,7 +196,7 @@ void AccountHandler::withdrawMoney(void)
 {
 	int id;
 	int money;
-	cout << "[출   금]" << endl;
+	cout << "\n[출   금]" << endl;
 	cout << "계좌ID : ";
 	cin >> id;
 	ACCOUNT_PTR searchedAcc = searchID(id);
@@ -114,13 +205,26 @@ void AccountHandler::withdrawMoney(void)
 		cout << "ID가 존재하지 않습니다." << endl;
 		return;
 	}
-	cout << "출금액 : ";
-	cin >> money;
-	if (!(searchedAcc->withdraw(money)))
+	while (true)
 	{
-		cout << "잔액이 부족합니다." << endl;
-		return;
-	}
+		cout << "출금액 : ";
+		cin >> money;
+		try
+		{
+			searchedAcc->withdraw(money);
+			break;
+		}
+		catch (insuffException &ex)
+		{
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+		catch (minusException &ex)
+		{
+			cout << ex.what() << endl;
+			cout << "다시 입력해주십시오" << endl << endl;
+		}
+	}	
 	cout << "출금완료" << endl;
 }
 
@@ -134,7 +238,6 @@ void AccountHandler::showAllAccInfo(void)
 	for (int i = 0; i < accNum; ++i)
 	{
 		accPtrArr[i]->showAccInfo();
-		cout << endl;
 	}
 }
 

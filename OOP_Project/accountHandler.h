@@ -5,6 +5,9 @@
 #include "normalAccount.h"
 #include "highCreditAccount.h"
 #include "BoundCheckArray.h"
+#include "invalid_variable.h"
+#include "invalid_menu.h"
+#include "minusException.h"
 
 class AccountHandler
 {

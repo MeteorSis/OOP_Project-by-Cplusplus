@@ -155,6 +155,10 @@
     <ClInclude Include="accountHandler.h" />
     <ClInclude Include="highCreditAccount.h" />
     <ClInclude Include="BankingCommonDecl.h" />
+    <ClInclude Include="insuffException.h" />
+    <ClInclude Include="invalid_menu.h" />
+    <ClInclude Include="invalid_variable.h" />
+    <ClInclude Include="minusException.h" />
     <ClInclude Include="normalAccount.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>

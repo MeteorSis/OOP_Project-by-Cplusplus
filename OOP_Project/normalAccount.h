@@ -9,6 +9,6 @@ private:
 	int interRate;
 public:
 	NormalAccount(const int &accID, const int &balance, const String &cusName, const int &interRate);
-	void deposit(const int &money);
+	void deposit(const int &money) throw (minusException);
 	void showAccInfo(void) const;
 };
